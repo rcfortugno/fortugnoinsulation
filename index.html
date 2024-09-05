@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortugno Brothers Insulation Service - Calgary, Alberta</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --light-color: #ecf0f1;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+        header {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            padding: 1rem 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        nav {
+            background-color: var(--secondary-color);
+            padding: 0.5rem 0;
+        }
+        nav ul {
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        nav ul li a {
+            color: var(--light-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        main {
+            padding: 20px 0;
+        }
+        .cta {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .cta:hover {
+            background-color: #c0392b;
+        }
+        footer {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            text-align: center;
+            padding: 1rem 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .estimate-tool {
+            background-color: #ffffff;
+            color: var(--text-color);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .estimate-tool input, .estimate-tool select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+        .estimate-tool button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .estimate-tool button:hover {
+            background-color: #c0392b;
+        }
+        .estimate-results {
+            margin-top: 30px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+        .estimate-option {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .recommended {
+            border: 2px solid #e74c3c;
+        }
+        .recommended::before {
+            content: "Recommended";
+            background-color: #e74c3c;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Fortugno Brothers Insulation Service</h1>
+            <p>Elevating Calgary's Home Comfort, One Attic at a Time</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#estimate">Estimate</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <section id="home" class="card">
+            <h2>Welcome to Fortugno Brothers Insulation Service</h2>
+            <p>We offer top-quality insulation services in Calgary, Alberta. Our commitment to excellence and customer satisfaction sets us apart.</p>
+        </section>
+        <section id="estimate" class="card">
+            <h2>Quick Estimate Calculator</h2>
+            <div class="estimate-tool">
+                <p>Get a quick estimate range for your insulation project. For a more accurate assessment, please contact us for an in-home evaluation.</p>
+                <input type="number" id="squareFootage" placeholder="Enter your home's square footage" required>
+                <select id="homeAge">
+                    <option value="">Select the age of your home</option>
+                    <option value="new">Built after 2000</option>
+                    <option value="medium">Built between 1970-2000</option>
+                    <option value="old">Built before 1970</option>
+                </select>
+                <input type="number" id="energyBill" placeholder="Average monthly energy bill ($)" required>
+                <select id="insulationConcern">
+                    <option value="">Select your main insulation concern</option>
+                    <option value="comfort">Improving comfort</option>
+                    <option value="bills">Reducing energy bills</option>
+                    <option value="both">Both comfort and bills</option>
+                </select>
+                <button onclick="calculateEstimate()">Get Your Estimate & Book</button>
+                <div id="estimateResult" class="estimate-results"></div>
+            </div>
+        </section> 
+        <section id="services" class="card">
+            <h2>Our Services</h2>
+            <p>At Fortugno Insulation Experts, we specialize in improving your home's energy efficiency and comfort. Our primary services include:</p>
+            <ul>
+                <li><strong>Attic Insulation:</strong> We use high-quality materials to ensure your attic is properly insulated, helping to maintain a comfortable temperature in your home year-round.</li>
+                <li><strong>Air Sealing:</strong> Our comprehensive air sealing service identifies and closes gaps and cracks that let air escape, improving your home's energy efficiency.</li>
+                <li><strong>Energy Audits:</strong> Our detailed energy assessments help identify areas where your home is losing energy and provide recommendations for improvements.</li>
+                <li><strong>Insulation Removal and Replacement:</strong> When necessary, we safely remove old or damaged insulation and replace it with new, efficient materials.</li>
+            </ul>
+            <h3>Service Levels</h3>
+            <ol>
+                <li><strong>Basic Insulation Upgrade:</strong> Adding up to 12 inches of cellulose insulation to your attic space.</li>
+                <li><strong>Enhanced Insulation with Air Sealing:</strong> Combining insulation with comprehensive air sealing for improved efficiency.</li>
+                <li><strong>Premium Insulation Overhaul:</strong> Complete removal of old insulation, thorough air sealing, and installation of new, high-performance insulation up to R-80 value.</li>
+            </ol>
+
+            <h3>Our Guarantees</h3>
+            <ul>
+                <li><strong>Price Match:</strong> We beat relevant quotes by 10%</li>
+                <li><strong>Energy Savings:</strong> Up to 40% reduction in energy bills</li>
+                <li><strong>R-Value Assessment:</strong> We provide a comprehensive R-value assessment for your home</li>
+                <li><strong>Quality Assurance:</strong> 2-year installation warranty on all our insulation work</li>
+            </ul>
+        </section>
+        
+        <section id="about" class="card">
+            <h2>About Us</h2>
+            <p>Fortugno Brothers Insulation is a family-owned business serving Calgary and the surrounding areas. Our commitment to quality and customer satisfaction sets us apart in the insulation industry. We stay up-to-date with the latest insulation technologies to provide our customers with the best possible service.</p>
+        </section>
+
+        <section id="faq" class="card">
+            <h2>Frequently Asked Questions</h2>
+            <h3>What is "R-Value"?</h2>
+            <p>R-Value is a measure of thermal resistance used in the building and construction industry. It indicates how well a layer of insulation can resist heat flow. The higher the R-Value, the better the insulation performance.</p>
+            <p>Factors affecting R-Value include:</p>
+            <ul>
+                <li>Type of insulation material</li>
+                <li>Thickness of insulation</li>
+                <li>Density of insulation</li>
+                <li>Installation quality</li>
+            </ul>
+            <p>Our experts will assess your home's current R-Value and recommend improvements to maximize energy efficiency. We ensure that your insulation meets or exceeds local building codes and energy standards.</p>
+            <h3>How much can I save on energy bills with proper insulation?</h3>
+            <p>Savings can vary widely depending on your current insulation levels and energy usage. On average, our customers see savings ranging from 15% to 40% on their energy bills after our insulation services.</p>
+            
+            <h3>How long does the insulation process take?</h3>
+            <p>The duration varies depending on the size of your home and the extent of work needed. Most residential projects are completed within 1-2 days.</p>
+            
+            <h3>Do you offer warranties on your work?</h3>
+            <p>We stand behind the quality of our work. Please contact us for specific warranty information on our different service levels.</p>
+
+            <h3>Do you offer financing options?</h3>
+            <p>Yes, we offer flexible financing options to help make your insulation project more affordable. Contact us for more details.</p>
+
+            <h3>How often should insulation be replaced?</h3>
+            <p>The lifespan of insulation can vary, but generally, it should be inspected every 15-20 years. Factors like moisture, pests, or settling can necessitate earlier replacement.</p>
+        </section>
+        
+        <section id="contact" class="card">
+            <h2>Contact Us</h2>
+            <p>Ready to improve your home's energy efficiency? Contact us today for a free estimate!</p>
+            <p>Phone: (877) 601-8747</p>
+            <p>Email: info@fortugnoinsulaion.ca</p>
+            <p>We proudly serve Calgary and surrounding areas.</p>
+            <a href="https://calendly.com" class="cta" target="_blank">Book Now</a>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Fortugno Brothers Insulation Service. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function calculateEstimate() {
+            const squareFootage = parseFloat(document.getElementById('squareFootage').value);
+            const homeAge = document.getElementById('homeAge').value;
+            const energyBill = parseFloat(document.getElementById('energyBill').value);
+            const insulationConcern = document.getElementById('insulationConcern').value;
+
+            // Base rate calculation
+            let baseRate = 1.5; // $1.5 per square foot for basic insulation
+
+            // Adjust rate based on home age
+            if (homeAge === 'medium') baseRate *= 1.2;
+            else if (homeAge === 'old') baseRate *= 1.4;
+
+            // Calculate estimates for each option
+            const option1CostLow = squareFootage * baseRate;
+            const option1CostHigh = option1CostLow * 1.3;
+            const option2CostLow = option1CostLow * 1.75;
+            const option2CostHigh = option2CostLow * 1.3;
+            const option3CostLow = option1CostLow * 3;
+            const option3CostHigh = option3CostLow * 1.3;
+
+            // Calculate potential savings for each option
+            let option1Savings = energyBill * 0.2;
+            let option2Savings = energyBill * 0.3;
+            let option3Savings = energyBill * 0.4;
+
+            // Adjust savings based on insulation concern
+            if (insulationConcern === 'bills') {
+                option2Savings *= 1.1;
+                option3Savings *= 1.2;
+            } else if (insulationConcern === 'both') {
+                option2Savings *= 1.15;
+                option3Savings *= 1.25;
+            }
+
+            // Calculate payback periods (in months) using the average cost
+            const option1Payback = ((option1CostLow + option1CostHigh) / 2) / option1Savings;
+            const option2Payback = ((option2CostLow + option2CostHigh) / 2) / option2Savings;
+            const option3Payback = ((option3CostLow + option3CostHigh) / 2) / option3Savings;
+
+            // Determine recommended option based on insulation concern and home age
+            let recommendedOption = 1;
+            if (insulationConcern === 'comfort' || insulationConcern === 'both' || homeAge === 'medium') {
+                recommendedOption = 2;
+            }
+            if (homeAge === 'old' || (insulationConcern === 'bills' && homeAge !== 'new')) {
+                recommendedOption = 3;
+            }
+
+            // Generate result HTML
+            let resultHTML = `
+                <div class="estimate-option ${recommendedOption === 1 ? 'recommended' : ''}">
+                    <h3>Option 1: Basic Insulation Upgrade</h3>
+                    <p>Estimated Cost Range: From $${option1CostLow.toFixed(2)} to $${option1CostHigh.toFixed(2)}</p>
+                    <p>Potential Monthly Savings: Up to $${option1Savings.toFixed(2)}</p>
+                    <p>Estimated Payback Period: Around ${option1Payback.toFixed(1)} months</p>
+                    <p>Description: Our basic insulation upgrade focuses on improving your home's energy efficiency by adding up to 12 inches of high-quality cellulose insulation to your attic space. This option is ideal for homes with decent existing insulation that just needs a boost. The cellulose we use is treated for fire resistance and pest deterrence, providing not just improved energy efficiency, but also enhanced safety and durability. This service can potentially reduce your energy bills by up to 20% and significantly improve your home's comfort level, especially during extreme weather conditions.</p>
+                </div>
+                <div class="estimate-option ${recommendedOption === 2 ? 'recommended' : ''}">
+                    <h3>Option 2: Enhanced Insulation with Air Sealing</h3>
+                    <p>Estimated Cost Range: From $${option2CostLow.toFixed(2)} to $${option2CostHigh.toFixed(2)}</p>
+                    <p>Potential Monthly Savings: Up to $${option2Savings.toFixed(2)}</p>
+                    <p>Estimated Payback Period: Around ${option2Payback.toFixed(1)} months</p>
+                    <p>Description: Our enhanced insulation service combines up to 12 inches of cellulose insulation with comprehensive air sealing for maximum efficiency. Before adding insulation, we'll identify and seal air leaks using expanding foam or caulk, focusing on areas like attic hatches, wire holes, and top plates. This two-pronged approach not only improves your home's insulation but also prevents air leakage, which can account for up to 40% of a home's heat loss. By choosing this option, you could see energy bill reductions of up to 30% and experience a noticeable improvement in your home's overall comfort and temperature consistency. This service is particularly beneficial for older homes or those with drafty areas.</p>
+                </div>
+                <div class="estimate-option ${recommendedOption === 3 ? 'recommended' : ''}">
+                    <h3>Option 3: Premium Insulation Overhaul</h3>
+                    <p>Estimated Cost Range: From $${option3CostLow.toFixed(2)} to $${option3CostHigh.toFixed(2)}</p>
+                    <p>Potential Monthly Savings: Up to $${option3Savings.toFixed(2)}</p>
+                    <p>Estimated Payback Period: Around ${option3Payback.toFixed(1)} months</p>
+                    <p>Description: Our premium insulation overhaul is the ultimate solution for homeowners looking to maximize energy efficiency and comfort. This comprehensive service includes the complete removal of old insulation, thorough air sealing of all potential leakage points, and installation of new, high-performance insulation up to R-80 value. We start by carefully removing existing insulation, then conduct a detailed inspection to identify and seal all air leaks. Next, we install a combination of blown-in cellulose and batt insulation to achieve optimal coverage and performance. This premium service can also include optional upgrades such as installing a radiant barrier for additional heat reflection or applying a mold-resistant treatment for added protection. With this top-tier service, you could see energy bill reductions of up to 40% or more, and experience a dramatic improvement in your home's comfort, air quality, and noise reduction. It's ideal for older homes, homes with poor existing insulation, or for homeowners who want the absolute best in energy efficiency and comfort.</p>
+                </div>
+                <p>Based on your input, we recommend Option ${recommendedOption}. Please note that these are estimated ranges and potential savings. Actual costs and savings may vary depending on your specific home characteristics and energy usage patterns.</p>
+                <p>For a more accurate assessment and personalized recommendation, please <a href="#contact" class="cta">contact us</a> for a professional in-home evaluation or <a href="https://calendly.com" class="cta" target="_blank">book now</a> for a consultation.</p>
+            `;
+
+            document.getElementById('estimateResult').innerHTML = resultHTML;
+        }
+    </script>
